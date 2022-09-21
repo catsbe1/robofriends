@@ -4,10 +4,15 @@ import { robots } from "./robots";
 import "./SearchBox.css";
 
 const SearchBox = () => {
+  const [realRobots, setRealRobots] = useState("");
   const [filteredRobots, setFilteredRobots] = useState(robots);
+  fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response) => response.json())
+    .then((users) => setRealRobots(users));
+
   const searchRobot = (event) => {
     setFilteredRobots(
-      robots.filter((robot) => {
+      realRobots.filter((robot) => {
         return robot.name
           .toLowerCase()
           .includes(event.target.value.toLowerCase());
@@ -15,7 +20,7 @@ const SearchBox = () => {
     );
   };
 
-  return !robots.length ? (
+  return !realRobots.length ? (
     <h1>Loading</h1>
   ) : (
     <div>
