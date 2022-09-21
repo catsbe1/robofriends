@@ -1,9 +1,10 @@
 import React from "react";
 import Card from "./Card";
+import "./CardList.css";
 
 const CardList = ({ robots }) => {
   return (
-    <div>
+    <div className="container">
       {robots.map((user, i) => {
         return (
           <Card
@@ -11,6 +12,7 @@ const CardList = ({ robots }) => {
             id={robots[i].id}
             name={robots[i].name}
             email={robots[i].email}
+            username={robots[i].username}
           />
         );
       })}

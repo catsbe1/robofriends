@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CardList from "./CardList";
 import { robots } from "./robots";
+import "./SearchBox.css";
 
 const SearchBox = () => {
   const [filteredRobots, setFilteredRobots] = useState(robots);
@@ -20,7 +21,7 @@ const SearchBox = () => {
     <div>
       <form>
         <input
-          className="pa3 ba b--green bg-lightest-blue"
+          className="pa3 ba b--green bg-lightest-blue input"
           type="search"
           placeholder="Search Robots"
           onChange={searchRobot}
