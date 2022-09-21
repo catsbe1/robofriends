@@ -3,13 +3,13 @@ import CardList from "./CardList";
 import { robots } from "./robots";
 
 const SearchBox = () => {
-  const [searchfield, setSearchField] = useState("");
   const [filteredRobots, setFilteredRobots] = useState(robots);
   const searchRobot = (event) => {
-    setSearchField(event.target.value);
     setFilteredRobots(
       robots.filter((robot) => {
-        return robot.name.toLowerCase().includes(searchfield.toLowerCase());
+        return robot.name
+          .toLowerCase()
+          .includes(event.target.value.toLowerCase());
       })
     );
   };
