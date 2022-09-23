@@ -6,6 +6,7 @@ import "./SearchBox.css";
 const SearchBox = () => {
   const [realRobots, setRealRobots] = useState("");
   const [filteredRobots, setFilteredRobots] = useState(robots);
+
   fetch("https://jsonplaceholder.typicode.com/users")
     .then((response) => response.json())
     .then((users) => setRealRobots(users));
