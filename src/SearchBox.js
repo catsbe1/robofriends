@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CardList from "./CardList";
 import { robots } from "./robots";
 import "./SearchBox.css";
 
 const SearchBox = () => {
-  const [realRobots, setRealRobots] = useState("");
+  const [realRobots, setRealRobots] = useState([]);
   const [filteredRobots, setFilteredRobots] = useState(robots);
 
-  fetch("https://jsonplaceholder.typicode.com/users")
+useEffect (() => {
+  try {
+    fetch("https://jsonplaceholder.typicode.com/users")
     .then((response) => response.json())
-    .then((users) => setRealRobots(users));
+    .then((users) => setRealRobots(users));  
+  }catch(error) {
+    console.log('someting went wrong -', error);
+  }
+})
+  
 
   const searchRobot = (event) => {
     setFilteredRobots(
